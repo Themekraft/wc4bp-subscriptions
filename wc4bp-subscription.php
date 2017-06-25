@@ -57,15 +57,16 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 			
 			$this->load_plugin_textdomain();
 			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'resources' . DIRECTORY_SEPARATOR . 'class-tgm-plugin-activation.php';
-			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_groups_required.php';
-			new wc4bp_groups_required();
-			if ( wc4bp_groups_required::is_wc4bp_active() ) {
+			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_required.php';
+			new wc4bp_subscription_required();
+			if ( wc4bp_subscription_required::is_wc4bp_active() ) {
 				if ( ! empty( $GLOBALS['wc4bp_loader'] ) ) {
 					/** @var WC4BP_Loader $wc4bp */
 					$wc4bp = $GLOBALS['wc4bp_loader'];
 					if ( ! empty( $wc4bp::getFreemius() ) && $wc4bp::getFreemius()->is_plan__premium_only( 'professional' ) ) {
-						if ( wc4bp_groups_required::is_buddypress_active() && wc4bp_groups_required::is_woocommerce_active() ) {
-							
+						if ( wc4bp_subscription_required::is_woo_subscription_active() && wc4bp_subscription_required::is_woocommerce_active() ) {
+							require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_manager.php';
+							new wc4bp_subscription_manager();
 						}
 					} else {
 						add_action( 'admin_notices', array( $this, 'admin_notice_need_pro' ) );
