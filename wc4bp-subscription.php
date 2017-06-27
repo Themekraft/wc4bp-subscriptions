@@ -68,6 +68,10 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 							require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_manager.php';
 							new wc4bp_subscription_manager();
 						}
+						else{
+						    //In case we  want to print this warning
+                            //add_action( 'admin_notices', array( $this, 'admin_notice_need_woo_subscription' ) );
+                        }
 					} else {
 						add_action( 'admin_notices', array( $this, 'admin_notice_need_pro' ) );
 					}
@@ -81,6 +85,14 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 			
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 		}
+
+		public function admin_notice_need_woo_subscription(){
+
+            $class   = 'notice notice-warning';
+            $message = __( 'WC4BP -> Subscription Need WooCommerce Subscription!', 'wc4bp_subscription' );
+
+            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+        }
 		
 		/**
 		 * Return an instance of this class.

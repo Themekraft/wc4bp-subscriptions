@@ -69,9 +69,9 @@ class wc4bp_subscription_required {
 	
 	public static function is_woo_subscription_active() {
 		self::load_plugins_dependency();
-		
-		//TODO implement this
-		return true;
+
+        return  is_plugin_active('woocommerce-subscriptions/woocommerce-subscriptions.php');
+
 	}
 	
 	public static function is_current_active() {
@@ -99,8 +99,8 @@ class wc4bp_subscription_required {
 			),
 			array(
 				'name'     => 'WooCommerce Subscription',
-				'slug'     => 'woocommerce-subscription', //TODO check if this is correct
-				'version'  => '2.4',
+				'slug'     => 'woocommerce-subscriptions', //TODO check if this is correct
+				'version'  => '2.0.20',
 				'required' => true,
 			),
 			array(
