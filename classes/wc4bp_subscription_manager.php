@@ -16,6 +16,7 @@ class wc4bp_subscription_manager {
 	
 	private static $plugin_slug = 'wc4bp_subscription';
 	protected static $version = '1.0.0';
+    private $end_points;
 	
 	public function __construct() {
 		require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_log.php';
@@ -28,6 +29,12 @@ class wc4bp_subscription_manager {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_js' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_style' ) );
             add_filter( 'wc4bp_subscription_menu_items', array( $this, 'wc4bp_subscription_menu_items' ) );
+            add_filter( 'wc4bp_subscription_page', array( $this, 'subscription_page' ) );
+            add_filter( 'wc4bp_view_subscription_page', array( $this, 'view_subscription_page' ) );
+
+            add_shortcode( 'woo_subscriptions_page', array( $this, "wc4bp_my_account_process_shortcode_subscriptions_page" ) );
+            add_shortcode( 'woo_subscriptions_view_page', array( $this, "wc4bp_my_account_process_shortcode_subscriptions_view_page" ) );
+
 		} catch ( Exception $ex ) {
 			wc4bp_subscription_log::log( array(
 				'action'         => get_class( $this ),
@@ -45,6 +52,27 @@ class wc4bp_subscription_manager {
 	 * @param bool $force
 	 */
 
+	public function view_subscription_page($path){
+        $path = '../../'.WC4BP_SUBSCRIPTION_BASENAME.'/view/view-subscription';
+
+        return $path;
+
+    }
+    public function subscription_page( $path ) {
+
+        $path = '../../'.WC4BP_SUBSCRIPTION_BASENAME.'/view/subscription';
+
+        return $path;
+    }
+    public function wc4bp_my_account_process_shortcode_subscriptions_view_page( $attr, $content = "" ) {
+        wc_print_notices();
+        wc_get_template( 'myaccount/view-subscription.php', array(), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/' );
+    }
+    public function  wc4bp_my_account_process_shortcode_subscriptions_page($attr, $content){
+        wc_print_notices();
+        wc_get_template( 'myaccount/subscriptions.php', array(), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/' );
+
+    }
     public function wc4bp_subscription_menu_items( $menu_items ) {
 
         // Add our menu item after the Orders tab if it exists, otherwise just add it to the end

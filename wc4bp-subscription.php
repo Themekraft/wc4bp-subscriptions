@@ -45,6 +45,7 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 		 * @var object
 		 */
 		protected static $instance = null;
+        public static $plugin_file = __DIR__;
 		
 		/**
 		 * Initialize the plugin.
@@ -54,7 +55,7 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 			define( 'WC4BP_SUBSCRIPTION_JS_PATH', plugin_dir_url( __FILE__ ) . 'assets/js/' );
 			define( 'WC4BP_SUBSCRIPTION_VIEW_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR );
 			define( 'WC4BP_SUBSCRIPTION_CLASSES_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR );
-			
+			define ('WC4BP_SUBSCRIPTION_BASENAME',basename(__DIR__));
 			$this->load_plugin_textdomain();
 			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'resources' . DIRECTORY_SEPARATOR . 'class-tgm-plugin-activation.php';
 			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_required.php';
