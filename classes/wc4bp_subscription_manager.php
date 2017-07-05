@@ -27,6 +27,7 @@ class wc4bp_subscription_manager {
 			
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_js' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_style' ) );
+            add_filter( 'wc4bp_subscription_menu_items', array( $this, 'wc4bp_subscription_menu_items' ) );
 		} catch ( Exception $ex ) {
 			wc4bp_subscription_log::log( array(
 				'action'         => get_class( $this ),
@@ -43,6 +44,18 @@ class wc4bp_subscription_manager {
 	 * @param $hook
 	 * @param bool $force
 	 */
+
+    public function wc4bp_subscription_menu_items( $menu_items ) {
+
+        // Add our menu item after the Orders tab if it exists, otherwise just add it to the end
+        if ( array_key_exists( 'orders', $menu_items ) ) {
+            $menu_items = wcs_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Subscriptions', 'woocommerce-subscriptions' ) );
+        } else {
+            $menu_items['subscriptions'] = __( 'Subscriptions', 'woocommerce-subscriptions' );
+        }
+
+        return $menu_items;
+    }
 	public static function enqueue_style( $hook, $force = false ) {
 		global $post;
 		if ( ( ( $hook == 'post.php' || $hook == 'post-new.php' ) && $post->post_type == 'product' ) || $force ) {
