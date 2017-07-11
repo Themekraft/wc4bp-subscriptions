@@ -28,7 +28,7 @@ class wc4bp_subscription_manager {
 			
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_js' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_style' ) );
-            add_filter( 'wc4bp_subscription_menu_items', array( $this, 'wc4bp_subscription_menu_items' ) );
+            add_filter( 'wc4bp_add_endpoint', array( $this, 'wc4bp_subscription_menu_items' ) );
             add_filter( 'wc4bp_subscription_page', array( $this, 'subscription_page' ) );
             add_filter( 'wc4bp_view_subscription_page', array( $this, 'view_subscription_page' ) );
 
