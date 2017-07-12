@@ -45,7 +45,7 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 		 * @var object
 		 */
 		protected static $instance = null;
-        public static $plugin_file = __DIR__;
+		public static $plugin_file = __DIR__;
 		
 		/**
 		 * Initialize the plugin.
@@ -55,7 +55,7 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 			define( 'WC4BP_SUBSCRIPTION_JS_PATH', plugin_dir_url( __FILE__ ) . 'assets/js/' );
 			define( 'WC4BP_SUBSCRIPTION_VIEW_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR );
 			define( 'WC4BP_SUBSCRIPTION_CLASSES_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR );
-			define ('WC4BP_SUBSCRIPTION_BASENAME',basename(__DIR__));
+			define( 'WC4BP_SUBSCRIPTION_BASENAME', basename( __DIR__ ) );
 			$this->load_plugin_textdomain();
 			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'resources' . DIRECTORY_SEPARATOR . 'class-tgm-plugin-activation.php';
 			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_required.php';
@@ -68,11 +68,10 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 						if ( wc4bp_subscription_required::is_woo_subscription_active() && wc4bp_subscription_required::is_woocommerce_active() ) {
 							require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_manager.php';
 							new wc4bp_subscription_manager();
+						} else {
+							//In case we  want to print this warning
+							//add_action( 'admin_notices', array( $this, 'admin_notice_need_woo_subscription' ) );
 						}
-						else{
-						    //In case we  want to print this warning
-                            //add_action( 'admin_notices', array( $this, 'admin_notice_need_woo_subscription' ) );
-                        }
 					} else {
 						add_action( 'admin_notices', array( $this, 'admin_notice_need_pro' ) );
 					}
@@ -86,14 +85,14 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 			
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 		}
-
-		public function admin_notice_need_woo_subscription(){
-
-            $class   = 'notice notice-warning';
-            $message = __( 'WC4BP -> Subscription Need WooCommerce Subscription!', 'wc4bp_subscription' );
-
-            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
-        }
+		
+		public function admin_notice_need_woo_subscription() {
+			
+			$class   = 'notice notice-warning';
+			$message = __( 'WC4BP -> Subscription Need WooCommerce Subscription!', 'wc4bp_subscription' );
+			
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+		}
 		
 		/**
 		 * Return an instance of this class.
