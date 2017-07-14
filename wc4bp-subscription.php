@@ -45,6 +45,7 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 		 * @var object
 		 */
 		protected static $instance = null;
+		public static $plugin_file = __DIR__;
 		
 		/**
 		 * Initialize the plugin.
@@ -54,18 +55,22 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 			define( 'WC4BP_SUBSCRIPTION_JS_PATH', plugin_dir_url( __FILE__ ) . 'assets/js/' );
 			define( 'WC4BP_SUBSCRIPTION_VIEW_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR );
 			define( 'WC4BP_SUBSCRIPTION_CLASSES_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR );
-			
+			define( 'WC4BP_SUBSCRIPTION_BASENAME', basename( __DIR__ ) );
 			$this->load_plugin_textdomain();
 			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'resources' . DIRECTORY_SEPARATOR . 'class-tgm-plugin-activation.php';
-			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_groups_required.php';
-			new wc4bp_groups_required();
-			if ( wc4bp_groups_required::is_wc4bp_active() ) {
+			require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_required.php';
+			new wc4bp_subscription_required();
+			if ( wc4bp_subscription_required::is_wc4bp_active() ) {
 				if ( ! empty( $GLOBALS['wc4bp_loader'] ) ) {
 					/** @var WC4BP_Loader $wc4bp */
 					$wc4bp = $GLOBALS['wc4bp_loader'];
 					if ( ! empty( $wc4bp::getFreemius() ) && $wc4bp::getFreemius()->is_plan__premium_only( 'professional' ) ) {
-						if ( wc4bp_groups_required::is_buddypress_active() && wc4bp_groups_required::is_woocommerce_active() ) {
-							
+						if ( wc4bp_subscription_required::is_woo_subscription_active() && wc4bp_subscription_required::is_woocommerce_active() ) {
+							require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_manager.php';
+							new wc4bp_subscription_manager();
+						} else {
+							//In case we  want to print this warning
+							add_action( 'admin_notices', array( $this, 'admin_notice_need_woo_subscription' ) );
 						}
 					} else {
 						add_action( 'admin_notices', array( $this, 'admin_notice_need_pro' ) );
@@ -77,6 +82,14 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 		public function admin_notice_need_pro() {
 			$class   = 'notice notice-warning';
 			$message = __( 'Need WC4BP -> WooCommerce BuddyPress Integration Professional Plan to work!', 'wc4bp_subscription' );
+			
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+		}
+		
+		public function admin_notice_need_woo_subscription() {
+			
+			$class   = 'notice notice-warning';
+			$message = __( 'WC4BP -> Subscription Need WooCommerce Subscription and Woocommerce!', 'wc4bp_subscription' );
 			
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 		}
