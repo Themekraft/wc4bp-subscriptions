@@ -37,6 +37,9 @@ if ( ! defined( 'WPINC' ) ) {
 
 if ( ! class_exists( 'wc4bp_subscription' ) ) {
 	
+	require_once dirname( __FILE__ ) . '/classes/wc4bp_subscription_fs.php';
+	new wc4bp_subscription_fs();
+	
 	class wc4bp_subscription {
 		
 		/**

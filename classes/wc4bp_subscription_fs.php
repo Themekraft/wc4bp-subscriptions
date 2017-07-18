@@ -22,19 +22,19 @@ class wc4bp_subscription_fs {
 	protected static $instance = null;
 	
 	public function __construct() {
-//		if ( $this->wc4bp_groups_fs_is_parent_active_and_loaded() ) {
-//			// If parent already included, init add-on.
-//			$this->wc4bp_groups_fs_init();
-//		} else if ( $this->wc4bp_groups_fs_is_parent_active() ) {
-//			// Init add-on only after the parent is loaded.
-//			add_action( 'wc4bp_core_fs_loaded', array( $this, 'wc4bp_groups_fs_init' ) );
-//		} else {
-//			// Even though the parent is not activated, execute add-on for activation / uninstall hooks.
-//			$this->wc4bp_groups_fs_init();
-//		}
+		if ( $this->wc4bp_subscription_fs_is_parent_active_and_loaded() ) {
+			// If parent already included, init add-on.
+			$this->wc4bp_subscription_fs_init();
+		} else if ( $this->wc4bp_groups_fs_is_parent_active() ) {
+			// Init add-on only after the parent is loaded.
+			add_action( 'wc4bp_core_fs_loaded', array( $this, 'wc4bp_subscription_fs_init' ) );
+		} else {
+			// Even though the parent is not activated, execute add-on for activation / uninstall hooks.
+			$this->wc4bp_subscription_fs_init();
+		}
 	}
 	
-	public function wc4bp_groups_fs_is_parent_active_and_loaded() {
+	public function wc4bp_subscription_fs_is_parent_active_and_loaded() {
 		// Check if the parent's init SDK method exists.
 		return method_exists( 'WC4BP_Loader', 'wc4bp_fs' );
 	}
@@ -53,51 +53,54 @@ class wc4bp_subscription_fs {
 		return false;
 	}
 	
-	public function wc4bp_groups_fs_init() {
-		if ( $this->wc4bp_groups_fs_is_parent_active_and_loaded() ) {
+	public function wc4bp_subscription_fs_init() {
+		if ( $this->wc4bp_subscription_fs_is_parent_active_and_loaded() ) {
 			// Init Freemius.
 			$this->start_freemius();
 		}
 	}
 	
 	public function start_freemius() {
-		global $wc4bp_groups_fs;
+		global $wc4bp_subscription_fs;
 		
-		if ( ! isset( $wc4bp_groups_fs ) ) {
+		if ( ! isset( $wc4bp_subscription_fs ) ) {
 			// Include Freemius SDK.
 			require_once dirname( __FILE__ ) . '/resources/freemius/start.php';
 			
-			$wc4bp_groups_fs = fs_dynamic_init( array(
-				'id'                  => '971',
-				'slug'                => 'wc4bp-groups',
+			$wc4bp_subscription_fs = fs_dynamic_init( array(
+				'id'                  => '1227',
+				'slug'                => 'wc4bp-subscription',
 				'type'                => 'plugin',
-				'public_key'          => 'pk_40db7d3bed7b1c44c5aab97ef5782',
-				'is_premium'          => false,
-				'has_premium_version' => false,
-				'has_paid_plans'      => false,
+				'public_key'          => 'pk_84e39dee252f447729db11f381700',
+				'is_premium'          => true,
+				'is_premium_only'     => true,
+				'has_premium_version' => true,
+				'has_paid_plans'      => true,
+				'is_org_compliant'    => false,
 				'parent'              => array(
 					'id'         => '425',
 					'slug'       => 'wc4bp',
 					'public_key' => 'pk_71d28f28e3e545100e9f859cf8554',
 					'name'       => 'WC4BP',
 				),
-//				'menu'                => array(
-//					'account' => false,
-//					'support' => false,
-//				),
+				'menu'                => array(
+					'first-path'     => 'plugins.php',
+					'support'        => false,
+				),
+				'secret_key'          => 'sk_v7p)FPIQ&YV&ytn2@kS=V%R[(+!0V',
 			) );
 		}
 		
-		return $wc4bp_groups_fs;
+		return $wc4bp_subscription_fs;
 	}
 	
 	/**
 	 * @return Freemius
 	 */
 	public static function getFreemius() {
-		global $gfirem_fs;
+		global $wc4bp_subscription_fs;
 		
-		return $gfirem_fs;
+		return $wc4bp_subscription_fs;
 	}
 	
 	/**
