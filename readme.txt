@@ -10,43 +10,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
 
 == Description ==
+BuddyPress WooCommerce Subscriptions Integration. With WC4BP Subscriptions you can integrate the popular WooCommerce Subscription Plugin with BuddyPress.
 
-The best solution to [Integrate BuddyPress Groups with WooCommerce](https://themekraft.com/create-groups-purchased-products-woocommerce/) which is perfect for any subscription and membership site or if you are offering premium support. The plugin takes a WooCommerce product to handle the membership of your WooCommerce customers into existing BuddyPress Groups.
+### Let your Members Manage Subscriptions from there Profile.
+* With WC4BP Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Memmber Profile Shop as new Tab.
 
-### Manage the group's membership in the product editing screen:
-1. Auto join members to groups after the payment is completed.
-2. Allow customers to select the related group(s) they would like to join that before adding the product to the cart.
-
----
-
-### Product Support
-Add your customers to a private support group after the purchase is complete and enable premium product support on your site.
-
----
-
-### Public and Private Groups
-* Let your customers select group membership for public and private groups around the product.
-* Auto join your customers to public and private groups which you can configure in the product editing screen.
-
----
-
-### Membership Levels
-Predefine the membership Level ( Moderator, Admin, Normal ) that your user will become in the group.
-
----
-
-== Frequently Asked Questions ==
+### Capture More Residual Revenue with Recurring Payments
+* With WooCommerce Subscriptions, you can create and manage products with recurring payments — payments that will give you residual revenue you can track and count on.
 
 = Dependencies =
 This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/buddyforms/) with the Professional Plan.
-
-
-== Screenshots ==
-1. Product Edit Screen
-2. Product Single View
-3. In the Card
-4. Checkout Complete
-5. In the eMail
 
 == Installation ==
 1. Download the plugin

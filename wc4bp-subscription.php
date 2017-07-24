@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WC4BP -> Subscription
- * Plugin URI:  https://themekraft.com
+ * Plugin URI:  https://themekraft.com/products/buddypress-woocommerce-subscriptions-integration/
  * Description: WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
