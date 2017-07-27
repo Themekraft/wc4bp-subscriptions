@@ -66,17 +66,20 @@ class wc4bp_subscription_fs {
 		if ( ! isset( $wc4bp_subscription_fs ) ) {
 			// Include Freemius SDK.
 			require_once dirname( __FILE__ ) . '/resources/freemius/start.php';
-			
+
 			$wc4bp_subscription_fs = fs_dynamic_init( array(
 				'id'                  => '1227',
-				'slug'                => 'wc4bp-subscription',
+				'slug'                => 'wc4bp-subscriptions',
 				'type'                => 'plugin',
 				'public_key'          => 'pk_84e39dee252f447729db11f381700',
 				'is_premium'          => true,
 				'is_premium_only'     => true,
-				'has_premium_version' => true,
 				'has_paid_plans'      => true,
 				'is_org_compliant'    => false,
+				'trial'               => array(
+					'days'               => 7,
+					'is_require_payment' => false,
+				),
 				'parent'              => array(
 					'id'         => '425',
 					'slug'       => 'wc4bp',
@@ -86,8 +89,7 @@ class wc4bp_subscription_fs {
 				'menu'                => array(
 					'first-path'     => 'plugins.php',
 					'support'        => false,
-				),
-				'secret_key'          => 'sk_v7p)FPIQ&YV&ytn2@kS=V%R[(+!0V',
+				)
 			) );
 		}
 		
