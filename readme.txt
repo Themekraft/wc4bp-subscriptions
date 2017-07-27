@@ -1,9 +1,9 @@
-=== WC4BP -> Subscription ===
+=== WC4BP -> Subscriptions ===
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: WP 4.0
 Tested up to: WP 4.8
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 4. Done ;)
 
 == Changelog ==
+
+= 1.0.1 =
+Added freemius trial code and rename slug from subscription to subscriptions
 
 = 1.0.0 =
 * first public version
