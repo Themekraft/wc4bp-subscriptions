@@ -5,7 +5,7 @@
  * Description: WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
- * Version:     1.0.1
+ * Version:     1.0.2
  * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
  * Domain Path: /languages
