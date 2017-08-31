@@ -25,7 +25,7 @@ class wc4bp_subscription_fs {
 		if ( $this->wc4bp_subscription_fs_is_parent_active_and_loaded() ) {
 			// If parent already included, init add-on.
 			$this->wc4bp_subscription_fs_init();
-		} else if ( $this->wc4bp_groups_fs_is_parent_active() ) {
+		} else if ( $this->wc4bp_subscription_fs_is_parent_active() ) {
 			// Init add-on only after the parent is loaded.
 			add_action( 'wc4bp_core_fs_loaded', array( $this, 'wc4bp_subscription_fs_init' ) );
 		} else {
@@ -39,7 +39,7 @@ class wc4bp_subscription_fs {
 		return method_exists( 'WC4BP_Loader', 'wc4bp_fs' );
 	}
 	
-	public function wc4bp_groups_fs_is_parent_active() {
+	public function wc4bp_subscription_fs_is_parent_active() {
 		$active_plugins_basenames = get_option( 'active_plugins' );
 		
 		foreach ( $active_plugins_basenames as $plugin_basename ) {
@@ -65,8 +65,8 @@ class wc4bp_subscription_fs {
 		
 		if ( ! isset( $wc4bp_subscription_fs ) ) {
 			// Include Freemius SDK.
-			require_once dirname( __FILE__ ) . '/resources/freemius/start.php';
-
+			require_once WC4BP_ABSPATH_CLASS_PATH . 'includes/freemius/start.php';
+			
 			$wc4bp_subscription_fs = fs_dynamic_init( array(
 				'id'                  => '1227',
 				'slug'                => 'wc4bp-subscriptions',
@@ -74,12 +74,9 @@ class wc4bp_subscription_fs {
 				'public_key'          => 'pk_84e39dee252f447729db11f381700',
 				'is_premium'          => true,
 				'is_premium_only'     => true,
+				'has_premium_version' => true,
 				'has_paid_plans'      => true,
 				'is_org_compliant'    => false,
-				'trial'               => array(
-					'days'               => 7,
-					'is_require_payment' => false,
-				),
 				'parent'              => array(
 					'id'         => '425',
 					'slug'       => 'wc4bp',
@@ -89,7 +86,8 @@ class wc4bp_subscription_fs {
 				'menu'                => array(
 					'first-path'     => 'plugins.php',
 					'support'        => false,
-				)
+				),
+				'secret_key'          => 'sk_v7p)FPIQ&YV&ytn2@kS=V%R[(+!0V',
 			) );
 		}
 		

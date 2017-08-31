@@ -35,12 +35,11 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'wc4bp_subscription' ) ) {
-	
+if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 	require_once dirname( __FILE__ ) . '/classes/wc4bp_subscription_fs.php';
 	new wc4bp_subscription_fs();
 	
-	class wc4bp_subscription {
+	class wc4bp_subscriptions {
 		
 		/**
 		 * Instance of this class.
@@ -119,5 +118,5 @@ if ( ! class_exists( 'wc4bp_subscription' ) ) {
 		}
 	}
 	
-	add_action( 'plugins_loaded', array( 'wc4bp_subscription', 'get_instance' ) );
+	add_action( 'plugins_loaded', array( 'wc4bp_subscriptions', 'get_instance' ) );
 }
