@@ -20,9 +20,20 @@ class wc4bp_subscription_integration {
         add_filter( 'wc4bp_add_endpoint', array( $this, 'wc4bp_subscription_menu_items' ) );
         add_shortcode( 'woo_subscriptions_page', array( $this, "wc4bp_my_account_process_shortcode_subscriptions_page" ) );
         add_shortcode( 'woo_subscriptions_view_page', array( $this, "wc4bp_my_account_process_shortcode_subscriptions_view_page" ) );
-	
+        add_filter( 'wcs_get_view_subscription_url',array( $this, 'wc4bp_get_view_subscription_url' ), 1, 2 );
 	}
 
+    public function wc4bp_get_view_subscription_url( $view_subscription_url,$id){
+        global $bp;
+        $c_action= $bp->current_action;
+        $current_user = wp_get_current_user();
+        $userdata     = get_userdata( $current_user->ID );
+        $link = $view_subscription_url;
+        if ($c_action === 'wc4pb_subscriptions'){
+            $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/wc4pb_subscriptions/view-subscription/'.$id;
+        }
+        return $link;
+    }
     public function get_template_directory( $dir ) {
         global $bp;
         if ( $bp->current_action === 'wc4pb_subscriptions' ) {
