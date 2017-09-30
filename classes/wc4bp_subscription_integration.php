@@ -21,8 +21,19 @@ class wc4bp_subscription_integration {
         add_shortcode( 'woo_subscriptions_page', array( $this, "wc4bp_my_account_process_shortcode_subscriptions_page" ) );
         add_shortcode( 'woo_subscriptions_view_page', array( $this, "wc4bp_my_account_process_shortcode_subscriptions_view_page" ) );
         add_filter( 'wcs_get_view_subscription_url',array( $this, 'wc4bp_get_view_subscription_url' ), 1, 2 );
+        add_filter( 'woocommerce_get_view_order_url',array( $this, 'wc4bp_woocommerce_get_view_order_url' ), 1, 2 );
 	}
 
+	public function wc4bp_woocommerce_get_view_order_url($url,$container){
+        global $bp;
+        $c_action= $bp->current_action;
+        $status = $container->status;
+        $current_user = wp_get_current_user();
+        $userdata     = get_userdata( $current_user->ID );
+	    $link = $url;
+	    return $link;
+
+    }
     public function wc4bp_get_view_subscription_url( $view_subscription_url,$id){
         global $bp;
         $c_action= $bp->current_action;
@@ -30,6 +41,10 @@ class wc4bp_subscription_integration {
         $userdata     = get_userdata( $current_user->ID );
         $link = $view_subscription_url;
         if ($c_action === 'wc4pb_subscriptions'){
+            $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/wc4pb_subscriptions/view-subscription/'.$id;
+        }
+        if($c_action === 'wc4pb_orders'){
+
             $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/wc4pb_subscriptions/view-subscription/'.$id;
         }
         return $link;
