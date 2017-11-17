@@ -51,7 +51,7 @@ class wc4bp_subscription_integration {
     }
     public function get_template_directory( $dir ) {
         global $bp;
-        if ( $bp->current_action === 'wc4pb_subscriptions' ) {
+        if ( $bp->current_action === 'subscriptions' ) {
             return WC4BP_SUBSCRIPTION_VIEW_PATH;
         }
         return $dir;
@@ -59,7 +59,7 @@ class wc4bp_subscription_integration {
 
     public function load_template_path( $path, $template_directory ) {
         global $bp;
-        if ( $bp->current_action === 'wc4pb_subscriptions' ) {
+        if ( $bp->current_action === 'subscriptions' ) {
             $is_view_subscription = array_search( 'view-subscription', $bp->unfiltered_uri );
             if ( $is_view_subscription !== false ) {
                 $path = 'view-subscription';
