@@ -40,12 +40,12 @@ class wc4bp_subscription_integration {
         $current_user = wp_get_current_user();
         $userdata     = get_userdata( $current_user->ID );
         $link = $view_subscription_url;
-        if ($c_action === 'wc4pb_subscriptions'){
-            $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/wc4pb_subscriptions/view-subscription/'.$id;
+        if ($c_action === 'subscriptions'){
+            $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/subscriptions/view-subscription/'.$id;
         }
-        if($c_action === 'wc4pb_orders'){
+        if($c_action === 'orders'){
 
-            $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/wc4pb_subscriptions/view-subscription/'.$id;
+            $link = get_bloginfo( 'url' ) . '/' . $bp->pages->members->slug . '/' . $userdata->user_nicename .'/shop/subscriptions/view-subscription/'.$id;
         }
         return $link;
     }
