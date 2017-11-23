@@ -19,7 +19,7 @@ class wc4bp_subscription_integration {
 		add_shortcode( 'woo_subscriptions_page', array( $this, 'wc4bp_my_account_process_shortcode_subscriptions_page' ) );
 		add_shortcode( 'woo_subscriptions_view_page', array( $this, 'wc4bp_my_account_process_shortcode_subscriptions_view_page' ) );
 		add_filter( 'wcs_get_view_subscription_url', array( $this, 'wc4bp_get_view_subscription_url' ), 1, 2 );
-		add_filter( 'wc4bp_screen_function', array( $this, 'screen_function' ), 10, 3 );
+		add_filter( 'wc4bp_screen_function', array( $this, 'screen_function' ), 10, 2 );
 		add_filter( 'wc4bp_load_template_path', array( $this, 'load_template_path' ), 99, 2 );
 		add_filter( 'wc4bp_members_get_template_directory', array( $this, 'get_template_directory' ), 10, 1 );
 	}
@@ -33,7 +33,7 @@ class wc4bp_subscription_integration {
 	 *
 	 * @return array
 	 */
-	public function screen_function( $id, $title, $screen_function ) {
+	public function screen_function( $screen_function, $id ) {
 		if ( 'subscriptions' === $id ) {
 			$screen_function = array( $this, 'wc4bp_subscription_screen_function' );
 		}
