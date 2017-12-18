@@ -30,6 +30,11 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 == Changelog ==
 = 1.0.4 =
 * Changing the requirement text for generic one.
+* Fix 404 error when viewing a subscription detail.
+* Fix error on active subscription link when user is en the order screen.
+* Fix prefix for current action remove wc4bp prefix.
+* Related subscription url fixed.
+* Fixing the screen filter.
 
 = 1.0.3 =
 * Removing freemius to use the same from the core.
