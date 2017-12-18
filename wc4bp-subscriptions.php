@@ -5,7 +5,7 @@
  * Description: WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
- * Version:     1.0.3
+ * Version:     1.0.4
  * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
  * Domain Path: /languages
@@ -38,9 +38,9 @@ if ( ! defined( 'WPINC' ) ) {
 if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 	require_once dirname( __FILE__ ) . '/classes/wc4bp_subscription_fs.php';
 	new wc4bp_subscription_fs();
-	
+
 	class wc4bp_subscriptions {
-		
+
 		/**
 		 * Instance of this class.
 		 *
@@ -48,7 +48,7 @@ if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 		 */
 		protected static $instance = null;
 		public static $plugin_file = __DIR__;
-		
+
 		/**
 		 * Initialize the plugin.
 		 */
@@ -65,8 +65,9 @@ if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 			if ( wc4bp_subscription_required::is_wc4bp_active() ) {
 				if ( ! empty( $GLOBALS['wc4bp_loader'] ) ) {
 					/** @var WC4BP_Loader $wc4bp */
-					$wc4bp = $GLOBALS['wc4bp_loader'];
-					if ( ! empty( $wc4bp::getFreemius() ) && $wc4bp::getFreemius()->is_plan__premium_only( 'professional' ) ) {
+					$wc4bp          = $GLOBALS['wc4bp_loader'];
+					$wc4bp_freemius = $wc4bp::getFreemius();
+					if ( ! empty( $wc4bp_freemius ) && $wc4bp_freemius->is_plan__premium_only( 'professional' ) ) {
 						if ( wc4bp_subscription_required::is_woo_subscription_active() && wc4bp_subscription_required::is_woocommerce_active() ) {
 							require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_manager.php';
 							new wc4bp_subscription_manager();
@@ -80,22 +81,22 @@ if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 				}
 			}
 		}
-		
+
 		public function admin_notice_need_pro() {
 			$class   = 'notice notice-warning';
 			$message = __( 'Need WC4BP -> WooCommerce BuddyPress Integration Professional Plan to work!', 'wc4bp_subscription' );
-			
+
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 		}
-		
+
 		public function admin_notice_need_woo_subscription() {
-			
+
 			$class   = 'notice notice-warning';
 			$message = __( 'WC4BP -> Subscription Need WooCommerce Subscription and Woocommerce!', 'wc4bp_subscription' );
-			
+
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 		}
-		
+
 		/**
 		 * Return an instance of this class.
 		 *
@@ -103,13 +104,13 @@ if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 		 */
 		public static function get_instance() {
 			// If the single instance hasn't been set, set it now.
-			if ( null == self::$instance ) {
+			if ( null === self::$instance ) {
 				self::$instance = new self;
 			}
-			
+
 			return self::$instance;
 		}
-		
+
 		/**
 		 * Load the plugin text domain for translation.
 		 */
@@ -117,6 +118,6 @@ if ( ! class_exists( 'wc4bp_subscriptions' ) ) {
 			load_plugin_textdomain( 'wc4bp_subscription', false, basename( dirname( __FILE__ ) ) . '/languages' );
 		}
 	}
-	
+
 	add_action( 'plugins_loaded', array( 'wc4bp_subscriptions', 'get_instance' ) );
 }
