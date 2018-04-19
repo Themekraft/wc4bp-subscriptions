@@ -22,6 +22,7 @@ class wc4bp_subscription_integration {
 		add_filter( 'wc4bp_screen_function', array( $this, 'screen_function' ), 10, 2 );
 		add_filter( 'wc4bp_load_template_path', array( $this, 'load_template_path' ), 99, 2 );
 		add_filter( 'wc4bp_members_get_template_directory', array( $this, 'get_template_directory' ), 10, 1 );
+
 	}
 
 	/**
@@ -37,6 +38,13 @@ class wc4bp_subscription_integration {
 		if ( 'subscriptions' === $id ) {
 			$screen_function = array( $this, 'wc4bp_subscription_screen_function' );
 		}
+		if($id === 'checkout'){
+
+            if(isset($_GET['change_payment_method'])){
+
+                $screen_function = array( $this, 'wc4bp_subscription_screen_function' );
+            }
+        }
 
 		return $screen_function;
 	}
@@ -59,7 +67,12 @@ class wc4bp_subscription_integration {
 	public function wc4bp_get_view_subscription_url( $view_subscription_url, $id ) {
 		global $bp;
 		$base_url = wc4bp_redirect::get_base_url();
+		$current_action = $bp->current_action;
 		switch ( $bp->current_action ) {
+
+            case 'checkout':
+                $view_subscription_url = $base_url . 'subscriptions/view-subscription/' . $id;
+                break;
 			case 'subscriptions':
 				$view_subscription_url = $base_url . 'subscriptions/view-subscription/' . $id;
 				break;
