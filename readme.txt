@@ -32,6 +32,8 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 * Testing against the last version of woo.
 * Adding the Woocommerce tag to increase compatibility.
 * Fix 404 error when click the Change payment button inside subuscription detail page.
+* Adding custom message to check dependency.
+* Changing the requirement library to use a custom internal id.
 
 = 1.0.4 =
 * Changing the requirement text for generic one.
