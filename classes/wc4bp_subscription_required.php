@@ -24,7 +24,7 @@ class wc4bp_subscription_required {
 		if ( ! is_admin() ) {
 			return;
 		}
-		add_action( 'tgmpa_register', array( $this, 'setup_and_check' ) );
+		add_action( 'wc4bp_subscription_tgmpa_register', array( $this, 'setup_and_check' ) );
 		add_action( 'in_admin_footer', array( $this, 'remove_woo_footer' ) );
 	}
 	
@@ -120,20 +120,20 @@ class wc4bp_subscription_required {
 			'strings' => array(
 				'notice_can_install_required'     => _n_noop(
 				/* translators: 1: plugin name(s). */
-					'One of the <u>ThemKraft</u> plugin requires the following plugin: %1$s.',
-					'One of the <u>ThemKraft</u> plugin requires the following plugins: %1$s.',
+					'<u>WC4BP -> Subscriptions</u> plugin requires the following plugin: %1$s.',
+					'<u>WC4BP -> Subscriptions</u> plugin requires the following plugins: %1$s.',
 					'wc4bp_subscription'
 				),
 				'notice_can_install_recommended'  => _n_noop(
 				/* translators: 1: plugin name(s). */
-					'One of the <u>ThemKraft</u> plugin recommends the following plugin: %1$s.',
-					'One of the <u>ThemKraft</u> plugin recommends the following plugins: %1$s.',
+					'<u>WC4BP -> Subscriptions</u> plugin recommends the following plugin: %1$s.',
+					'<u>WC4BP -> Subscriptions</u> plugin recommends the following plugins: %1$s.',
 					'wc4bp_subscription'
 				),
 				'notice_can_activate_required'    => _n_noop(
 				/* translators: 1: plugin name(s). */
-					'The following is a required plugin for one of the <u>ThemKraft</u> and is currently inactive: %1$s.',
-					'The following is a required plugins for one of the <u>ThemKraft</u> and they are currently inactive: %1$s.',
+					'The following is a required plugin for <u>WC4BP -> Subscriptions</u> and is currently inactive: %1$s.',
+					'The following is a required plugins for <u>WC4BP -> Subscriptions</u> and they are currently inactive: %1$s.',
 					'wc4bp_subscription'
 				),
 				'notice_ask_to_update'            => _n_noop(
@@ -146,7 +146,7 @@ class wc4bp_subscription_required {
 		);
 		
 		// Call the tgmpa function to register the required required_plugins
-		tgmpa( $required_plugins, $config );
+		wc4bp_subscription_tgmpa( $required_plugins, $config );
 	}
 	
 }

@@ -3,7 +3,7 @@ Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: WP 4.0
 Tested up to: WP 4.8
-Stable tag: 1.0.4
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,11 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 4. Done ;)
 
 == Changelog ==
+= 1.1.0 =
+* Testing against the last version of woo.
+* Adding the Woocommerce tag to increase compatibility.
+* Fix 404 error when click the Change payment button inside subuscription detail page.
+
 = 1.0.4 =
 * Changing the requirement text for generic one.
 * Fix 404 error when viewing a subscription detail.
