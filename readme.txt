@@ -1,8 +1,8 @@
 === WC4BP -> Subscriptions ===
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
-Requires at least: WP 4.0
-Tested up to: WP 4.8
+Requires at least: 4.0
+Tested up to: 4.9.4
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
