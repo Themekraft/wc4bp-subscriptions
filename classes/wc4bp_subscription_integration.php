@@ -132,7 +132,7 @@ class wc4bp_subscription_integration {
 	public function wc4bp_subscription_menu_items( $menu_items ) {
 		// Add our menu item after the Orders tab if it exists, otherwise just add it to the end
 		if ( array_key_exists( 'orders', $menu_items ) ) {
-			wc4bp_array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Subscriptions', 'woocommerce-subscriptions' ) );
+			$menu_items = wc4bp_subscription_manager::array_insert_after( 'orders', $menu_items, 'subscriptions', __( 'Subscriptions', 'woocommerce-subscriptions' ) );
 		} else {
 			$menu_items['subscriptions'] = __( 'Subscriptions', 'woocommerce-subscriptions' );
 		}
