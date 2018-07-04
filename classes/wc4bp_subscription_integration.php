@@ -148,7 +148,7 @@ class wc4bp_subscription_integration {
 	 */
 	public function wc4bp_my_account_process_shortcode_subscriptions_view_page( $attr, $content = '' ) {
 		wc_print_notices();
-		wc_get_template( 'myaccount/view-subscription.php', array(), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/' );
+		wc_get_template( 'myaccount/view-subscription.php', array( ), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/' );
 	}
 
 	/**
@@ -159,6 +159,11 @@ class wc4bp_subscription_integration {
 	 */
 	public function wc4bp_my_account_process_shortcode_subscriptions_page( $attr, $content ) {
 		wc_print_notices();
-		wc_get_template( 'myaccount/subscriptions.php', array(), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/' );
+		global $wp;
+		$current_page = 1;
+		if ( isset( $wp->query_vars['orders'] ) ) {
+			$current_page = absint( $wp->query_vars['orders'] );
+		}
+		wc_get_template( 'myaccount/subscriptions.php', array( 'current_page' => $current_page ), '', plugin_dir_path( WC_Subscriptions::$plugin_file ) . 'templates/' );
 	}
 }
