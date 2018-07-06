@@ -3,7 +3,7 @@ Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
 Tested up to: 4.9.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 4. Done ;)
 
 == Changelog ==
+= 1.1.3 =
+* Fixing the Subscription View page.
+
 = 1.1.2 =
 * Adding the helper function inside the plugin.
 
