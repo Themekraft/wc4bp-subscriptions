@@ -8,27 +8,29 @@
  * @license        http://www.opensource.org/licenses/gpl-2.0.php GPL License
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (! defined('ABSPATH')) {
+    exit;
 }
 
-class wc4bp_subscription_log {
+class wc4bp_subscription_log
+{
+    public function __construct()
+    {
+        add_filter('aal_init_roles', array($this, 'aal_init_roles'));
+    }
 
-	function __construct() {
-		add_filter( 'aal_init_roles', array( $this, 'aal_init_roles' ) );
-	}
+    public function aal_init_roles($roles)
+    {
+        $roles_existing = $roles['manage_options'];
+        $roles['manage_options'] = array_merge($roles_existing, array(wc4bp_subscription_manager::getSlug()));
 
-	public function aal_init_roles( $roles ) {
-		$roles_existing          = $roles['manage_options'];
-		$roles['manage_options'] = array_merge( $roles_existing, array( wc4bp_subscription_manager::getSlug() ) );
+        return $roles;
+    }
 
-		return $roles;
-	}
-
-	public static function log( $args ) {
-		if ( function_exists( "aal_insert_log" ) ) {
-			aal_insert_log( $args );
-		}
-	}
-
+    public static function log($args)
+    {
+        if (function_exists('aal_insert_log')) {
+            aal_insert_log($args);
+        }
+    }
 }

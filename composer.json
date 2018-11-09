@@ -1,0 +1,54 @@
+{
+  "name": "Themekraft/wc4bp-subscriptions",
+  "description": "WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.",
+  "keywords": [
+    "buddypress",
+    "woocommerce",
+    "e-commerce",
+    "woocommerce",
+    "subscription"
+  ],
+  "homepage": "https://themekraft.com/products/buddypress-woocommerce-subscriptions-integration/",
+  "license": "GPLv2 or later",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.1",
+    "php-coveralls/php-coveralls": "^2.0@dev",
+    "squizlabs/php_codesniffer": "3.*",
+    "friendsofphp/php-cs-fixer": "^2.9",
+    "jakub-onderka/php-parallel-lint": "dev-master",
+    "jakub-onderka/php-console-highlighter": "dev-master",
+    "wp-coding-standards/wpcs": "dev-master",
+    "symplify/easy-coding-standard": "^5.2@dev"
+  },
+  "scripts": {
+    "tests": "composer fixes && composer lints",
+    "sniffs": [
+      "phpcs --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* classes/ --report=diff -v",
+      "phpcs --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* view/ --report=diff -v",
+      "phpcs --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* wc4bp-subscriptions.php --report=diff -v"
+    ],
+    "sniffs-fix": [
+      "phpcbf --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* classes/ --report=diff -v",
+      "phpcbf --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* view/ --report=diff -v",
+      "phpcbf --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* wc4bp-subscriptions.php --report=diff -v"
+    ],
+    "fixes": [
+      "ecs check classes --fix",
+      "ecs check view --fix",
+      "ecs check wc4bp-subscriptions.php --fix"
+    ],
+    "lints": [
+      "parallel-lint ./classes  --blame --exclude vendor",
+      "parallel-lint ./view  --blame --exclude vendor",
+      "parallel-lint ./wc4bp-subscriptions.php  --blame --exclude vendor"
+    ],
+    "phpcs-setup": "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
+    "phpcbf-setup": "./vendor/bin/phpcbf --config-set installed_paths vendor/wp-coding-standards/wpcs",
+    "post-install-cmd": "composer phpcs-setup && composer phpcbf-setup",
+    "post-update-cmd": "composer phpcs-setup && composer phpcbf-setup"
+  }
+}
