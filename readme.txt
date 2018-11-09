@@ -2,8 +2,8 @@
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
-Tested up to: 4.9.6
-Stable tag: 1.1.3
+Tested up to: 4.9.8
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,13 +13,13 @@ WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce 
 BuddyPress WooCommerce Subscriptions Integration. With WC4BP Subscriptions you can integrate the popular WooCommerce Subscription Plugin with BuddyPress.
 
 ### Let your Members Manage Subscriptions from there Profile.
-* With WC4BP Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Memmber Profile Shop as new Tab.
+* With WC4BP Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Member Profile Shop as new Tab.
 
 ### Capture More Residual Revenue with Recurring Payments
 * With WooCommerce Subscriptions, you can create and manage products with recurring payments — payments that will give you residual revenue you can track and count on.
 
 = Dependencies =
-This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/buddyforms/) with the Professional Plan.
+This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/wc4bp/) with the Professional Plan.
 
 == Installation ==
 1. Download the plugin
@@ -28,6 +28,9 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 4. Done ;)
 
 == Changelog ==
+= 1.1.4 =
+* Fixed the display issue breaking the html.
+
 = 1.1.3 =
 * Fixing the Subscription View page.
 
@@ -53,13 +56,13 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 * Fixing the screen filter.
 
 = 1.0.3 =
-* Removing freemius to use the same from the core.
+* Removing Freemius to use the same from the core.
 
 = 1.0.2 =
 * Freemius update to allow license activation if bought with buy now button
 
 = 1.0.1 =
-* Added freemius trial code and rename slug from subscription to subscriptions
+* Added Freemius trial code and rename slug from subscription to subscriptions
 
 = 1.0.0 =
 * first public version

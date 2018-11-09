@@ -9,10 +9,10 @@
  */
 ?>
 <div id="item-body" role="main">
-    <?php do_action( 'wc4bp_before_checkout_body' ); ?>
+    <?php do_action('wc4bp_before_checkout_body'); ?>
 
-    <?php echo do_shortcode( '[woo_subscriptions_view_page]' ); ?>
+    <?php echo do_shortcode('[woo_subscriptions_view_page]'); ?>
 
-    <?php do_action( 'wc4bp_after_checkout_body' ); ?>
+    <?php do_action('wc4bp_after_checkout_body'); ?>
 
-</div><!-- #item-bo
+</div>
