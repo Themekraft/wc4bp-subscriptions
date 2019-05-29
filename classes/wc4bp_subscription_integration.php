@@ -137,8 +137,16 @@ class wc4bp_subscription_integration
      */
     public function wc4bp_my_account_process_shortcode_subscriptions_view_page($attr, $content = '')
     {
+        global $wp;
+
+        if ( isset($wp->query_vars['view-subscription'])){
+            $id = $wp->query_vars['view-subscription'];
+        }
+        else{return false; }
+
         wc_print_notices();
-        wc_get_template('myaccount/view-subscription.php', array(), '', plugin_dir_path(WC_Subscriptions::$plugin_file) . 'templates/');
+        $subscription = new WC_Subscription( $id );
+        wc_get_template('myaccount/view-subscription.php', array('subscription'=>$subscription), '', plugin_dir_path(WC_Subscriptions::$plugin_file) . 'templates/');
     }
 
     /**
