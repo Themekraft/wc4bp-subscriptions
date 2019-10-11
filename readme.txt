@@ -29,7 +29,8 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 
 == Changelog ==
 = 1.1.6 11 Oct 2019 =
-* 
+* Fixed the option to auto-renew subscriptions and the add-payment options.
+* Fixed the redirection on the order received page to view the subscription into the profile. 
 
 = 1.1.5 29 May 2019 =
 * Fix to make compatible with the last version of WooCommerce Subscription
