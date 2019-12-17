@@ -30,7 +30,26 @@ class wc4bp_subscription_integration {
 		add_filter( 'wc4bp_load_template_path', array( $this, 'load_template_path' ), 99, 2 );
 		add_filter( 'wc4bp_members_get_template_directory', array( $this, 'get_template_directory' ), 10, 1 );
 		add_filter( 'wc4bp_endpoint_url', array( $this, 'wc4bp_endpoint_url' ), 20, 5 );
+        add_filter( 'wcs_view_subscription_actions', array( $this, 'wc4bp_view_subscription_actions' ), 99, 2 );
 	}
+    public function wc4bp_view_subscription_actions($actions, $subscription){
+
+        $checkout_page_id = wc_get_page_id( 'checkout' );
+        $checkout_page    = get_post( $checkout_page_id );
+        $url              = get_bloginfo( 'url' ) . '/' . $checkout_page->post_name.'/order-pay/'.$subscription->get_id();
+        $url= add_query_arg(
+            array(
+                'pay_for_order' => 'true',
+                'key'           => $subscription->get_order_key(),
+            ),
+            $url
+        );
+        if(isset($actions['change_payment_method'])){
+            $actions['change_payment_method']['url']=wp_nonce_url( add_query_arg( array( 'change_payment_method' => $subscription->get_id() ), $url ) );
+        }
+
+        return $actions;
+    }
 
 	public function wc4bp_endpoint_url( $url, $endpoint, $value, $permalink, $base_path ) {
 		switch ( $endpoint ) {
