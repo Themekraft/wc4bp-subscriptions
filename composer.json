@@ -1,5 +1,5 @@
 {
-  "name": "Themekraft/wc4bp-subscriptions",
+  "name": "themekraft/wc4bp-subscriptions",
   "description": "WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.",
   "keywords": [
     "buddypress",
@@ -25,6 +25,10 @@
     "symplify/easy-coding-standard": "^5.2@dev"
   },
   "scripts": {
+    "package": "sh .tk/package.sh wc4bp-subscriptions",
+    "wp-release": "sh .tk/wp_release.sh",
+    "beta-release": "sh .tk/full-deploy.sh wc4bp-subscriptions 1227 false beta",
+    "full-release": "sh .tk/full-deploy.sh wc4bp-subscriptions 1227 false released",
     "tests": "composer fixes && composer lints",
     "sniffs": [
       "phpcs --report=full --colors -p --standard=phpcs.xml --ignore=*/vendor/*,*/node_modules/* classes/ --report=diff -v",
