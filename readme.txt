@@ -3,7 +3,7 @@ Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
 Tested up to: 5.2.1
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,9 +28,12 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 4. Done ;)
 
 == Changelog ==
+= 1.1.7 - 20 Dec 2019 =
+* Fixed to set the correct url for the change payment method form in the subscription details page.
+
 = 1.1.6 11 Oct 2019 =
 * Fixed the option to auto-renew subscriptions and the add-payment options.
-* Fixed the redirection on the order received page to view the subscription into the profile. 
+* Fixed the redirection on the order received page to view the subscription into the profile.
 
 = 1.1.5 29 May 2019 =
 * Fix to make compatible with the last version of WooCommerce Subscription
