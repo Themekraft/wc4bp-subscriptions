@@ -14,7 +14,7 @@
  *
  *****************************************************************************
  * WC requires at least: 3.6.4
- * WC tested up to: 3.7.1
+ * WC tested up to: 4.8.0
  *****************************************************************************
  *
  * This script is free software; you can redistribute it and/or modify
