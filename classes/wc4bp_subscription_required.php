@@ -93,7 +93,7 @@ class wc4bp_subscription_required
                 'required' => true,
             ),
             array(
-                'name' => 'WC4BP -> WooCommerce BuddyPress Integration',
+                'name' => 'WooBuddy -> WooCommerce BuddyPress Integration',
                 'slug' => $wc4bp_slug,
                 'version' => '3.0.15',
                 'required' => true,
@@ -112,20 +112,20 @@ class wc4bp_subscription_required
             'strings' => array(
                 'notice_can_install_required' => _n_noop(
                     /* translators: 1: plugin name(s). */
-                    '<u>WC4BP -> Subscriptions</u> plugin requires the following plugin: %1$s.',
-                    '<u>WC4BP -> Subscriptions</u> plugin requires the following plugins: %1$s.',
+                    '<u>WooBuddy -> Subscriptions</u> plugin requires the following plugin: %1$s.',
+                    '<u>WooBuddy -> Subscriptions</u> plugin requires the following plugins: %1$s.',
                     'wc4bp_subscription'
                 ),
                 'notice_can_install_recommended' => _n_noop(
                     /* translators: 1: plugin name(s). */
-                    '<u>WC4BP -> Subscriptions</u> plugin recommends the following plugin: %1$s.',
-                    '<u>WC4BP -> Subscriptions</u> plugin recommends the following plugins: %1$s.',
+                    '<u>WooBuddy -> Subscriptions</u> plugin recommends the following plugin: %1$s.',
+                    '<u>WooBuddy -> Subscriptions</u> plugin recommends the following plugins: %1$s.',
                     'wc4bp_subscription'
                 ),
                 'notice_can_activate_required' => _n_noop(
                     /* translators: 1: plugin name(s). */
-                    'The following is a required plugin for <u>WC4BP -> Subscriptions</u> and is currently inactive: %1$s.',
-                    'The following is a required plugins for <u>WC4BP -> Subscriptions</u> and they are currently inactive: %1$s.',
+                    'The following is a required plugin for <u>WooBuddy -> Subscriptions</u> and is currently inactive: %1$s.',
+                    'The following is a required plugins for <u>WooBuddy -> Subscriptions</u> and they are currently inactive: %1$s.',
                     'wc4bp_subscription'
                 ),
                 'notice_ask_to_update' => _n_noop(

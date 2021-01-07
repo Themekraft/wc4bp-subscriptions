@@ -1,25 +1,25 @@
-=== WC4BP -> Subscriptions ===
+=== WooBuddy -> Subscriptions ===
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
 Tested up to: 5.2.1
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
+WooBuddy -> Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
 
 == Description ==
-BuddyPress WooCommerce Subscriptions Integration. With WC4BP Subscriptions you can integrate the popular WooCommerce Subscription Plugin with BuddyPress.
+WooBuddy -> Subscriptions is an integration of WooBuddy -> WooCommerce BuddyPress Integration and let you integrate the popular WooCommerce Subscription Plugin with BuddyPress.
 
 ### Let your Members Manage Subscriptions from there Profile.
-* With WC4BP Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Member Profile Shop as new Tab.
+* With WooBuddy -> Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Member Profile Shop as new Tab.
 
 ### Capture More Residual Revenue with Recurring Payments
 * With WooCommerce Subscriptions, you can create and manage products with recurring payments — payments that will give you residual revenue you can track and count on.
 
 = Dependencies =
-This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/wc4bp/) with the Professional Plan.
+This addon need the [WooBuddy -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/wc4bp/) with the Professional Plan.
 
 == Installation ==
 1. Download the plugin
@@ -28,6 +28,10 @@ This addon need the [WC4BP -> WooCommerce BuddyPress Integration](https://wordpr
 4. Done ;)
 
 == Changelog ==
+= 1.1.8 - 7 Jan 2021 =
+* Change name to WooBuddy -> Subscriptions.
+* Maintenance review.
+
 = 1.1.7 - 20 Dec 2019 =
 * Fixed to set the correct url for the change payment method form in the subscription details page.
 
