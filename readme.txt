@@ -18,6 +18,12 @@ WooBuddy -> Subscriptions is an integration of WooBuddy -> WooCommerce BuddyPres
 ### Capture More Residual Revenue with Recurring Payments
 * With WooCommerce Subscriptions, you can create and manage products with recurring payments — payments that will give you residual revenue you can track and count on.
 
+### Addons
+
+> * [Shop solution for your BuddyPress community. Integrates a WooCommerce installation with a BuddyPress social network.](https://wordpress.org/plugins/wc4bp)
+> * [WooBuddy -> Checkout Manager: Add your BuddyPress Profile Fields into the WooCommerce Checkout. Customize your WooCommerce Checkout field and remove unwanted fields for example "phone number" from the checkout form.](https://wordpress.org/plugins/woocommerce-buddypress-integration-xprofile-checkout-manager/)
+> * [WooBuddy -> Groups, integrate BuddyPress Groups with WooCommerce and WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.](https://wordpress.org/plugins/wc4bp-groups/)
+
 = Dependencies =
 This addon need the [WooBuddy -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/wc4bp/) with the Professional Plan.
 
