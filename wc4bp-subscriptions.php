@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: WC4BP -> Subscriptions
+ * Plugin Name: WooBuddy -> Subscriptions
  * Plugin URI:  https://themekraft.com/products/buddypress-woocommerce-subscriptions-integration/
- * Description: WooCommerce for BuddyPress Subscription - Integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
+ * Description: WooBuddy -> Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
- * Version:     1.1.7
+ * Version:     1.1.8
  * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
  * Domain Path: /languages
@@ -14,7 +14,7 @@
  *
  *****************************************************************************
  * WC requires at least: 3.6.4
- * WC tested up to: 3.7.1
+ * WC tested up to: 4.8.0
  *****************************************************************************
  *
  * This script is free software; you can redistribute it and/or modify
@@ -90,7 +90,7 @@ if (! class_exists('wc4bp_subscriptions')) {
         public function admin_notice_need_pro()
         {
             $class = 'notice notice-warning';
-            $message = __('Need WC4BP -> WooCommerce BuddyPress Integration Professional Plan to work!', 'wc4bp_subscription');
+            $message = __('Need WooBuddy -> WooCommerce BuddyPress Integration Professional Plan to work!', 'wc4bp_subscription');
 
             printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
         }
