@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: WooBuddy -> Subscriptions
+ * Plugin Name: BuddyPress Integration for WooCommerce Subscriptions
  * Plugin URI:  https://themekraft.com/products/buddypress-woocommerce-subscriptions-integration/
- * Description: WooBuddy -> Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
+ * Description: BuddyPress Integration for WooCommerce Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
- * Version:     1.1.8
+ * Version:     1.1.9
  * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
  * Domain Path: /languages
