@@ -73,26 +73,30 @@ class wc4bp_subscription_fs
             require_once WC4BP_ABSPATH_CLASS_PATH . 'includes/freemius/start.php';
 
             $wc4bp_subscription_fs = fs_dynamic_init(array(
-                'id' => '1227',
-                'slug' => 'wc4bp-subscriptions',
-                'type' => 'plugin',
-                'public_key' => 'pk_84e39dee252f447729db11f381700',
-                'is_premium' => true,
-                'is_premium_only' => true,
+                'id'                  => '1227',
+                'slug'                => 'wc4bp-subscriptions',
+                'type'                => 'plugin',
+                'public_key'          => 'pk_84e39dee252f447729db11f381700',
+                'is_premium'          => true,
+                'is_premium_only'     => true,
                 'has_premium_version' => true,
-                'has_paid_plans' => true,
-                'is_org_compliant' => false,
+                'has_paid_plans'      => true,
+                'is_org_compliant'    => false,
+                'trial'               => array(
+                    'days'               => 7,
+                    'is_require_payment' => true,
+                ),
                 'parent' => array(
-                    'id' => '425',
-                    'slug' => 'wc4bp',
+                    'id'         => '425',
+                    'slug'       => 'wc4bp',
                     'public_key' => 'pk_71d28f28e3e545100e9f859cf8554',
-                    'name' => 'WC4BP',
+                    'name'       => 'WC4BP',
                 ),
                 'menu' => array(
                     'first-path' => 'plugins.php',
-                    'support' => false,
+                    'support'    => false,
                 ),
-                'secret_key' => 'sk_v7p)FPIQ&YV&ytn2@kS=V%R[(+!0V',
+                'bundle_license_auto_activation' => true,
             ));
         }
 

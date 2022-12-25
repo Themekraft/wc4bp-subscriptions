@@ -1,19 +1,19 @@
-=== WooBuddy -> Subscriptions ===
+=== BuddyPress Integration for WooCommerce Subscriptions ===
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
-Tested up to: 5.2.1
-Stable tag: 1.1.8
+Tested up to: 6.1.1
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WooBuddy -> Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
+BuddyPress Integration for WooCommerce Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
 
 == Description ==
-WooBuddy -> Subscriptions is an integration of WooBuddy -> WooCommerce BuddyPress Integration and let you integrate the popular WooCommerce Subscription Plugin with BuddyPress.
+BuddyPress Integration for WooCommerce Subscriptions is an integration of WooBuddy -> WooCommerce BuddyPress Integration and let you integrate the popular WooCommerce Subscription Plugin with BuddyPress.
 
 ### Let your Members Manage Subscriptions from there Profile.
-* With WooBuddy -> Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Member Profile Shop as new Tab.
+* With BuddyPress Integration for WooCommerce Subscriptions you can integrate the My Subscriptions Account Page into the BuddyPres Member Profile Shop as new Tab.
 
 ### Capture More Residual Revenue with Recurring Payments
 * With WooCommerce Subscriptions, you can create and manage products with recurring payments — payments that will give you residual revenue you can track and count on.
@@ -21,8 +21,8 @@ WooBuddy -> Subscriptions is an integration of WooBuddy -> WooCommerce BuddyPres
 ### Addons
 
 > * [Shop solution for your BuddyPress community. Integrates a WooCommerce installation with a BuddyPress social network.](https://wordpress.org/plugins/wc4bp)
-> * [WooBuddy -> Checkout Manager: Add your BuddyPress Profile Fields into the WooCommerce Checkout. Customize your WooCommerce Checkout field and remove unwanted fields for example "phone number" from the checkout form.](https://wordpress.org/plugins/woocommerce-buddypress-integration-xprofile-checkout-manager/)
-> * [WooBuddy -> Groups, integrate BuddyPress Groups with WooCommerce and WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.](https://wordpress.org/plugins/wc4bp-groups/)
+> * [BuddyPress xProfile Checkout Manager for WooCommerce : Add your BuddyPress Profile Fields into the WooCommerce Checkout. Customize your WooCommerce Checkout field and remove unwanted fields for example "phone number" from the checkout form.](https://wordpress.org/plugins/woocommerce-buddypress-integration-xprofile-checkout-manager/)
+> * [BuddyPress Groups for WooCommerce, integrate BuddyPress Groups with WooCommerce and WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.](https://wordpress.org/plugins/wc4bp-groups/)
 
 = Dependencies =
 This addon need the [WooBuddy -> WooCommerce BuddyPress Integration](https://wordpress.org/plugins/wc4bp/) with the Professional Plan.
@@ -34,6 +34,13 @@ This addon need the [WooBuddy -> WooCommerce BuddyPress Integration](https://wor
 4. Done ;)
 
 == Changelog ==
+= 1.1.9 - 24 Dec 2022 =
+* Changed name to BuddyPress Integration for WooCommerce Subscriptions.
+* Enabled 7 days of trial version.
+* Added bundle license auto activation.
+* Fixed security issue.
+* Tested up to WordPress 6.1.1
+
 = 1.1.8 - 7 Jan 2021 =
 * Change name to WooBuddy -> Subscriptions.
 * Maintenance review.
