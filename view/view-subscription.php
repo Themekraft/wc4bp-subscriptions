@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package		WordPress
  * @subpackage	BuddyPress, Woocommerce
@@ -9,6 +10,7 @@
  */
 ?>
 <div id="item-body" role="main">
+
     <?php do_action('wc4bp_before_checkout_body'); ?>
 
     <?php echo do_shortcode('[woo_subscriptions_view_page]'); ?>
