@@ -2,12 +2,15 @@
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
-Tested up to: 6.1.1
-Stable tag: 1.1.9
+Tested up to: 6.8
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-BuddyPress Integration for WooCommerce Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
+Integrate BuddyPress with WooCommerce Subscriptions. Ideal for membership sites, premium support, or user group subscriptions.
+
+== Compatibility ==
+WooCommerce HPOS: true
 
 == Description ==
 BuddyPress Integration for WooCommerce Subscriptions is an integration of WooBuddy -> WooCommerce BuddyPress Integration and let you integrate the popular WooCommerce Subscription Plugin with BuddyPress.

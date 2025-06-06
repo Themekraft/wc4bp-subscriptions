@@ -1,21 +1,23 @@
 <?php
+
 /**
  * Plugin Name: BuddyPress Integration for WooCommerce Subscriptions
  * Plugin URI:  https://themekraft.com/products/buddypress-woocommerce-subscriptions-integration/
  * Description: BuddyPress Integration for WooCommerce Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
- * Version:     1.1.9
- * Licence:     GPLv3
+ * Version:     1.2.1
+ * License:     GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: wc4bp_subscription
  * Domain Path: /languages
  *
  * @package wc4bp_subscription
  *
- *****************************************************************************
+ * ****************************************************************************
  * WC requires at least: 3.6.4
  * WC tested up to: 4.8.0
- *****************************************************************************
+ * ****************************************************************************
  *
  * This script is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,14 +33,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- ****************************************************************************
+ * ***************************************************************************
  */
-
-if (! defined('WPINC')) {
+if (!defined('WPINC')) {
     die;
 }
 
-if (! class_exists('wc4bp_subscriptions')) {
+if (!class_exists('wc4bp_subscriptions')) {
     require_once dirname(__FILE__) . '/classes/wc4bp_subscription_fs.php';
     new wc4bp_subscription_fs();
 
@@ -68,16 +69,16 @@ if (! class_exists('wc4bp_subscriptions')) {
             require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_required.php';
             new wc4bp_subscription_required();
             if (wc4bp_subscription_required::is_wc4bp_active()) {
-                if (! empty($GLOBALS['wc4bp_loader'])) {
+                if (!empty($GLOBALS['wc4bp_loader'])) {
                     /** @var WC4BP_Loader $wc4bp */
                     $wc4bp = $GLOBALS['wc4bp_loader'];
                     $wc4bp_freemius = $wc4bp::getFreemius();
-                    if (! empty($wc4bp_freemius) && $wc4bp_freemius->is_plan__premium_only('professional')) {
+                    if (!empty($wc4bp_freemius) && $wc4bp_freemius->is_plan__premium_only('professional')) {
                         if (wc4bp_subscription_required::is_woo_subscription_active() && wc4bp_subscription_required::is_woocommerce_active()) {
                             require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_manager.php';
                             new wc4bp_subscription_manager();
                         } else {
-                            //In case we  want to print this warning
+                            // In case we  want to print this warning
                             add_action('admin_notices', array($this, 'admin_notice_need_woo_subscription'));
                         }
                     } else {
@@ -85,6 +86,12 @@ if (! class_exists('wc4bp_subscriptions')) {
                     }
                 }
             }
+
+            add_action('before_woocommerce_init', function () {
+                if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+                    \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+                }
+            });
         }
 
         public function admin_notice_need_pro()
