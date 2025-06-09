@@ -7,8 +7,8 @@
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
  * Version:     1.2.1
- * License:     GPLv3
- * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Update URI: https://api.freemius.com
+ * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
  * Domain Path: /languages
  *
@@ -17,6 +17,7 @@
  * ****************************************************************************
  * WC requires at least: 3.6.4
  * WC tested up to: 4.8.0
+ * WC HPOS support: yes
  * ****************************************************************************
  *
  * This script is free software; you can redistribute it and/or modify
@@ -68,6 +69,7 @@ if (!class_exists('wc4bp_subscriptions')) {
             require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'resources' . DIRECTORY_SEPARATOR . 'class-tgm-plugin-activation.php';
             require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_required.php';
             new wc4bp_subscription_required();
+
             if (wc4bp_subscription_required::is_wc4bp_active()) {
                 if (!empty($GLOBALS['wc4bp_loader'])) {
                     /** @var WC4BP_Loader $wc4bp */
@@ -87,11 +89,13 @@ if (!class_exists('wc4bp_subscriptions')) {
                 }
             }
 
-            add_action('before_woocommerce_init', function () {
-                if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
-                    \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
-                }
-            });
+            if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
+                    'custom_order_tables',
+                    __FILE__,
+                    true
+                );
+            }
         }
 
         public function admin_notice_need_pro()
