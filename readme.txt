@@ -2,7 +2,7 @@
 Contributors: themekraft, svenl77, gfirem
 Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
-Tested up to: 6.8
+Tested up to: 7.1
 Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,15 @@ This addon need the [WooBuddy -> WooCommerce BuddyPress Integration](https://wor
 4. Done ;)
 
 == Changelog ==
+= 1.2.1 - 03 Oct 2026 =
+* Fixed a fatal error with WooBuddy 3.6.0 and later.
+* WooCommerce High-Performance Order Storage (HPOS) compatible.
+* Tested up to WordPress 7.1.
+
+= 1.2.0 =
+* Fix subscriptions not showing up on subscriptions tab.
+* Maintenance review.
+
 = 1.1.9 - 24 Dec 2022 =
 * Changed name to BuddyPress Integration for WooCommerce Subscriptions.
 * Enabled 7 days of trial version.

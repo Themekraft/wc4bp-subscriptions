@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 
 class wc4bp_subscription_manager
 {
-    protected static $version = '1.2.1-beta.1';
+    protected static $version = '1.2.1';
 
     private static $plugin_slug = 'wc4bp_subscriptions';
 
