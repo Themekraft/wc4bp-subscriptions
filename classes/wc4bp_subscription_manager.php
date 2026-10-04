@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package        WordPress
  * @subpackage     BuddyPress, Woocommerce, WC4BP
@@ -7,14 +8,13 @@
  * @link           http://themekraft.com/store/woocommerce-buddypress-integration-wordpress-plugin/
  * @license        http://www.opensource.org/licenses/gpl-2.0.php GPL License
  */
-
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
 class wc4bp_subscription_manager
 {
-    protected static $version = '1.1.9';
+    protected static $version = '1.2.1';
 
     private static $plugin_slug = 'wc4bp_subscriptions';
 
@@ -23,7 +23,7 @@ class wc4bp_subscription_manager
         require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_log.php';
         new wc4bp_subscription_log();
         try {
-            //loading_dependency
+            // loading_dependency
             require_once WC4BP_SUBSCRIPTION_CLASSES_PATH . 'wc4bp_subscription_integration.php';
             new wc4bp_subscription_integration();
         } catch (Exception $ex) {
