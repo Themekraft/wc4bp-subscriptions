@@ -181,11 +181,9 @@ class wc4bp_subscription_integration
 		return $menu_items;
 	}
 
-	public function assets_for_view_subscription_page()
+	public function assets_for_view_subscription_page($subscription)
 	{
 		$dependencies = array('jquery');
-		global $wp;
-		$subscription = wcs_get_subscription($wp->query_vars['view-subscription']);
 
 		if ($subscription && current_user_can('view_order', $subscription->get_id())) {
 			$dependencies[] = 'jquery-blockui';
@@ -220,9 +218,14 @@ class wc4bp_subscription_integration
 			return false;
 		}
 
-		$this->assets_for_view_subscription_page();
+		$subscription = wcs_get_subscription($id);
+		if (!$subscription || !current_user_can('view_order', $subscription->get_id())) {
+			wc_print_notice(__('Invalid subscription.', 'wc4bp_subscription'), 'error');
+			return false;
+		}
+
+		$this->assets_for_view_subscription_page($subscription);
 		wc_print_notices();
-		$subscription = new WC_Subscription($id);
 		wc_get_template('myaccount/view-subscription.php', array('subscription' => $subscription), '', plugin_dir_path(WC_Subscriptions::$plugin_file) . 'templates/');
 	}
 
