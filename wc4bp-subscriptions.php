@@ -6,7 +6,7 @@
  * Description: BuddyPress Integration for WooCommerce Subscriptions, integrate BuddyPress with WooCommerce Subscription. Ideal for subscription and membership sites such as premium support.
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
- * Version:     1.2.1
+ * Version:     1.2.2
  * Update URI: https://api.freemius.com
  * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
@@ -16,7 +16,7 @@
  *
  * ****************************************************************************
  * WC requires at least: 3.6.4
- * WC tested up to: 4.8.0
+ * WC tested up to: 11.1
  * WC HPOS support: yes
  * ****************************************************************************
  *
@@ -39,6 +39,15 @@
 if (!defined('WPINC')) {
     die;
 }
+
+add_action(
+    'before_woocommerce_init',
+    function () {
+        if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+        }
+    }
+);
 
 if (!class_exists('wc4bp_subscriptions')) {
     require_once dirname(__FILE__) . '/classes/wc4bp_subscription_fs.php';
@@ -87,14 +96,6 @@ if (!class_exists('wc4bp_subscriptions')) {
                         add_action('admin_notices', array($this, 'admin_notice_need_pro'));
                     }
                 }
-            }
-
-            if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
-                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
-                    'custom_order_tables',
-                    __FILE__,
-                    true
-                );
             }
         }
 
