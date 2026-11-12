@@ -7,6 +7,7 @@
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
  * Version:     1.2.2
+ * Requires Plugins: woocommerce, wc4bp, woocommerce-subscriptions
  * Update URI: https://api.freemius.com
  * Licence:     GPLv3
  * Text Domain: wc4bp_subscription
@@ -38,6 +39,25 @@
  */
 if (!defined('WPINC')) {
     die;
+}
+
+if ( ! function_exists( 'wc4bp_addon_plugin_dependencies_slug' ) ) {
+	/**
+	 * Let the running WooBuddy copy (free or premium) satisfy "Requires Plugins: wc4bp".
+	 *
+	 * @param string $slug Dependency slug.
+	 *
+	 * @return string
+	 */
+	function wc4bp_addon_plugin_dependencies_slug( $slug ) {
+		if ( 'wc4bp' === $slug && defined( 'WC4BP_FOLDER' ) ) {
+			return WC4BP_FOLDER;
+		}
+
+		return $slug;
+	}
+
+	add_filter( 'wp_plugin_dependencies_slug', 'wc4bp_addon_plugin_dependencies_slug' );
 }
 
 add_action(
