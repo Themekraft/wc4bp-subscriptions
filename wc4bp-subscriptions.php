@@ -7,6 +7,7 @@
  * Author:      ThemeKraft
  * Author URI: https://themekraft.com/products/woocommerce-buddypress-integration/
  * Version:     1.2.2
+ * Requires PHP: 7.4
  * Requires Plugins: woocommerce, wc4bp, woocommerce-subscriptions
  * Update URI: https://api.freemius.com
  * Licence:     GPLv3
