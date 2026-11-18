@@ -4,7 +4,7 @@ Tags: buddypress, woocommerce, e-commerce, woocommerce subscription
 Requires at least: 4.5
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ This addon need the [WooBuddy -> WooCommerce BuddyPress Integration](https://wor
 4. Done ;)
 
 == Changelog ==
+= 1.2.3 - 18 Nov 2026 =
+* WooCommerce, WooBuddy and WooCommerce Subscriptions are now declared as required plugins.
+* Requires PHP 7.4.
+
 = 1.2.2 - 05 Oct 2026 =
 * The subscription page in the member profile now only shows the member's own subscriptions.
 * WooCommerce HPOS compatibility is now declared at the right time.
