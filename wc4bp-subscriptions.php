@@ -10,9 +10,9 @@
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce, wc4bp, woocommerce-subscriptions
  * Update URI: https://api.freemius.com
- * Licence:     GPLv3
+ * License:     GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wc4bp_subscription
- * Domain Path: /languages
  *
  * @package wc4bp_subscription
  *
