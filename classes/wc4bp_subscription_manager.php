@@ -71,7 +71,7 @@ class wc4bp_subscription_manager
      */
     public static function echo_translation($str)
     {
-        _e($str, 'wc4bp_subscription');
+        echo esc_html(self::translation($str));
     }
 
     /**
