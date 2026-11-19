@@ -12,7 +12,7 @@
  * Update URI: https://api.freemius.com
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: wc4bp_subscription
+ * Text Domain: wc4bp-subscriptions
  *
  * @package wc4bp_subscription
  *
@@ -123,7 +123,7 @@ if (!class_exists('wc4bp_subscriptions')) {
         public function admin_notice_need_pro()
         {
             $class = 'notice notice-warning';
-            $message = __('Need WooBuddy -> WooCommerce BuddyPress Integration Professional Plan to work!', 'wc4bp_subscription');
+            $message = __('Need WooBuddy -> WooCommerce BuddyPress Integration Professional Plan to work!', 'wc4bp-subscriptions');
 
             printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
         }
@@ -131,7 +131,7 @@ if (!class_exists('wc4bp_subscriptions')) {
         public function admin_notice_need_woo_subscription()
         {
             $class = 'notice notice-warning';
-            $message = __('WC4BP -> Subscription Need WooCommerce Subscription and Woocommerce!', 'wc4bp_subscription');
+            $message = __('WC4BP -> Subscription Need WooCommerce Subscription and Woocommerce!', 'wc4bp-subscriptions');
 
             printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
         }
@@ -156,7 +156,7 @@ if (!class_exists('wc4bp_subscriptions')) {
          */
         public function load_plugin_textdomain()
         {
-            load_plugin_textdomain('wc4bp_subscription', false, basename(dirname(__FILE__)) . '/languages');
+            load_plugin_textdomain('wc4bp-subscriptions', false, basename(dirname(__FILE__)) . '/languages');
         }
     }
 

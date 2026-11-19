@@ -220,7 +220,7 @@ class wc4bp_subscription_integration
 
 		$subscription = wcs_get_subscription($id);
 		if (!$subscription || !current_user_can('view_order', $subscription->get_id())) {
-			wc_print_notice(__('Invalid subscription.', 'wc4bp_subscription'), 'error');
+			wc_print_notice(__('Invalid subscription.', 'wc4bp-subscriptions'), 'error');
 			return false;
 		}
 

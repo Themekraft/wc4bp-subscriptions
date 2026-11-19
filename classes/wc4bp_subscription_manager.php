@@ -63,7 +63,7 @@ class wc4bp_subscription_manager
      */
     public static function translation($str)
     {
-        return __($str, 'wc4bp_subscription');
+        return __($str, 'wc4bp-subscriptions');
     }
 
     /**
