@@ -156,6 +156,7 @@ if (!class_exists('wc4bp_subscriptions')) {
          */
         public function load_plugin_textdomain()
         {
+            // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- Kept on purpose: premium copies and builds not hosted on wordpress.org load their own translations from /languages.
             load_plugin_textdomain('wc4bp-subscriptions', false, basename(dirname(__FILE__)) . '/languages');
         }
     }
