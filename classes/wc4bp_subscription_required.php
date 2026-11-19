@@ -115,25 +115,25 @@ class wc4bp_subscription_required
                 'notice_can_install_required' => _n_noop(
                     '<u>WooBuddy -> Subscriptions</u> plugin requires the following plugin: %1$s.',
                     '<u>WooBuddy -> Subscriptions</u> plugin requires the following plugins: %1$s.',
-                    'wc4bp_subscription'
+                    'wc4bp-subscriptions'
                 ),
                 /* translators: 1: plugin name(s). */
                 'notice_can_install_recommended' => _n_noop(
                     '<u>WooBuddy -> Subscriptions</u> plugin recommends the following plugin: %1$s.',
                     '<u>WooBuddy -> Subscriptions</u> plugin recommends the following plugins: %1$s.',
-                    'wc4bp_subscription'
+                    'wc4bp-subscriptions'
                 ),
                 /* translators: 1: plugin name(s). */
                 'notice_can_activate_required' => _n_noop(
                     'The following is a required plugin for <u>WooBuddy -> Subscriptions</u> and is currently inactive: %1$s.',
                     'The following is a required plugins for <u>WooBuddy -> Subscriptions</u> and they are currently inactive: %1$s.',
-                    'wc4bp_subscription'
+                    'wc4bp-subscriptions'
                 ),
                 /* translators: 1: plugin name(s). */
                 'notice_ask_to_update' => _n_noop(
                     'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this plugin: %1$s.',
                     'The following plugins need to be updated to their latest version to ensure maximum compatibility with this plugin: %1$s.',
-                    'wc4bp_subscription'
+                    'wc4bp-subscriptions'
                 ),
             ),
         );

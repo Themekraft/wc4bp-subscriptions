@@ -83,7 +83,7 @@ class wc4bp_subscription_integration
 			$screen_function = array($this, 'wc4bp_subscription_screen_function');
 		}
 		if ($id === 'checkout') {
-			if (isset($_GET['change_payment_method'])) {
+			if (isset($_GET['change_payment_method'])) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only change_payment_method flag, picks the screen to display.
 				$screen_function = array($this, 'wc4bp_subscription_screen_function');
 			}
 		}
@@ -173,9 +173,9 @@ class wc4bp_subscription_integration
 	{
 		// Add our menu item after the Orders tab if it exists, otherwise just add it to the end
 		if (array_key_exists('orders', $menu_items)) {
-			$menu_items = wc4bp_subscription_manager::array_insert_after('orders', $menu_items, 'subscriptions', __('Subscriptions', 'woocommerce-subscriptions'));
+			$menu_items = wc4bp_subscription_manager::array_insert_after('orders', $menu_items, 'subscriptions', __('Subscriptions', 'woocommerce-subscriptions')); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- reuses WooCommerce Subscriptions' own translated strings.
 		} else {
-			$menu_items['subscriptions'] = __('Subscriptions', 'woocommerce-subscriptions');
+			$menu_items['subscriptions'] = __('Subscriptions', 'woocommerce-subscriptions'); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- reuses WooCommerce Subscriptions' own translated strings.
 		}
 
 		return $menu_items;
@@ -190,13 +190,13 @@ class wc4bp_subscription_integration
 			$script_params = array(
 				'ajax_url' => esc_url(WC()->ajax_url()),
 				'subscription_id' => $subscription->get_id(),
-				'add_payment_method_msg' => __('To enable automatic renewals for this subscription, you will first need to add a payment method.', 'woocommerce-subscriptions') . "\n\n" . __('Would you like to add a payment method now?', 'woocommerce-subscriptions'),
+				'add_payment_method_msg' => __('To enable automatic renewals for this subscription, you will first need to add a payment method.', 'woocommerce-subscriptions') . "\n\n" . __('Would you like to add a payment method now?', 'woocommerce-subscriptions'), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- reuses WooCommerce Subscriptions' own translated strings.
 				'auto_renew_nonce' => wp_create_nonce("toggle-auto-renew-{$subscription->get_id()}"),
 				'add_payment_method_url' => esc_url($subscription->get_change_payment_method_url()),
 				'has_payment_gateway' => $subscription->has_payment_gateway() && wc_get_payment_gateway_by_order($subscription)->supports('subscriptions'),
 			);
 			wp_enqueue_script('wcs-view-subscription', plugin_dir_url(WC_Subscriptions::$plugin_file) . 'assets/js/frontend/view-subscription.js', $dependencies, WC_Subscriptions::$version, true);
-			wp_localize_script('wcs-view-subscription', 'WCSViewSubscription', apply_filters('woocommerce_subscriptions_frontend_view_subscription_script_parameters', $script_params));
+			wp_localize_script('wcs-view-subscription', 'WCSViewSubscription', apply_filters('woocommerce_subscriptions_frontend_view_subscription_script_parameters', $script_params)); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WooCommerce Subscriptions hook.
 		}
 	}
 
@@ -220,7 +220,7 @@ class wc4bp_subscription_integration
 
 		$subscription = wcs_get_subscription($id);
 		if (!$subscription || !current_user_can('view_order', $subscription->get_id())) {
-			wc_print_notice(__('Invalid subscription.', 'wc4bp_subscription'), 'error');
+			wc_print_notice(__('Invalid subscription.', 'wc4bp-subscriptions'), 'error');
 			return false;
 		}
 
